@@ -2,8 +2,8 @@ import threading, functools, os, re, time, glob, zipfile, logging, traceback
 import numpy as np, soundfile as sf, gradio as gr
 from engine import Engine, SR
 
-APP = "AS VOICE STUDIO V3"
-BASE = os.getenv("AS_HOME", "/content" if os.path.isdir("/content") else os.path.expanduser("~/as_voice_studio"))
+APP = "GHX VOICE STUDIO V5"
+BASE = os.getenv("AS_HOME", "/content" if os.path.isdir("/content") else os.path.expanduser("~/ghx_voice_studio_v5"))
 LIB, OUT = f"{BASE}/voices", f"{BASE}/exports"
 os.makedirs(LIB, exist_ok=True); os.makedirs(OUT, exist_ok=True)
 logging.basicConfig(filename=f"{BASE}/studio.log", level=logging.ERROR)
@@ -237,7 +237,7 @@ def out_col(file=False):
     return a, gr.Markdown()
 
 with gr.Blocks(css=CSS, js=FORCE_DARK, title=APP, theme=gr.themes.Base(primary_hue="indigo", neutral_hue="slate")) as demo:
-    gr.HTML(f'<div id="hero"><h1>AS VOICE <span>STUDIO</span> V3</h1>'
+    gr.HTML(f'<div id="hero"><h1>GHX VOICE <span>STUDIO</span> V5</h1>'
             '<p>Multilingual voice cloning, design and production in one workspace.</p>'
             '<div class="chips"><i>600+ languages</i><i>Voice cloning</i><i>Voice design</i><i>Batch export</i></div></div>')
     with gr.Tabs():
