@@ -1,10 +1,12 @@
 <div align="center">
 
-# 🎙️ AS VOICE STUDIO V3
+# 🎙️ GHX VOICE STUDIO V5
 
-**Professional multilingual voice cloning, design and production — in one clean workspace.**
+**Professional multilingual voice cloning, voice design and audio production in one workspace.**
 
-<a href="https://colab.research.google.com/github/AS-STUDIO-PRO/AS-VOICE-STUDIO-V3/blob/main/AS_VOICE_STUDIO_V3.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+<a href="https://colab.research.google.com/github/GHX-STUDIO-786/GHX-VOICE-STUDIO-V5/blob/main/GHX_VOICE_STUDIO_V5.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Google Colab"></a>
+
+**Developer: GHX STUDIO**
 
 </div>
 
@@ -12,76 +14,76 @@
 
 ## ✨ Features
 
-| Tab | What it does |
+| Tool | What it does |
 |---|---|
-| **Voice Clone** | Clone a voice from a 3–10 second clip. Reference transcript is optional (auto-transcribed). Save the voice for later. |
-| **Voice Design** | Build a voice from scratch: gender, age, pitch, style, accent, plus one-click presets (Narrator, News Anchor, Storyteller, Presenter, Soft Whisper). |
-| **Auto Voice** | Let the studio pick a voice automatically. |
-| **Expressions** | Insert non-verbal tags such as `[laughter]` and `[sigh]` directly into your script. Supports phoneme-based pronunciation fixes. |
-| **Voice Library** | Reuse saved voices across sessions without re-uploading the reference. |
-| **Batch Export** | One line per file. Renders every line and downloads everything as a single ZIP. |
-| **Advanced settings** | Language (600+ languages), fixed Duration and Guidance scale, shared by every tab. Denoise, Preprocess Prompt and Postprocess Output are separate toggles. Voice Clone also has an optional Instruct box, and Voice Design offers extra accents and Chinese dialects. |
-| **Guide** | Live system status, tips and responsible-use notes. |
+| **Voice Clone** | Clone a voice from a 3–10 second reference recording. A reference transcript is optional and can be transcribed automatically. |
+| **Voice Design** | Create a voice using gender, age, pitch, style, accent and ready-made presets. |
+| **Auto Voice** | Generate speech without supplying a saved voice or reference recording. |
+| **Expressions** | Add non-verbal expression tags such as `[laughter]` and `[sigh]` to scripts. |
+| **Voice Library** | Save, reuse, refresh and delete voice profiles. |
+| **Batch Export** | Render one audio file per line and download the results as a ZIP. |
+| **Advanced Settings** | Configure language, duration, guidance scale, denoising and audio preprocessing/postprocessing. |
+| **Guide** | View system status, usage tips and responsible-use guidance. |
 
-Also included: automatic sentence-level splitting for long scripts, adjustable quality and speaking speed, silence control (Preprocess Prompt / Postprocess Output toggles), advanced generation settings, a live processing timer in the Colab log, 24 kHz WAV output, a live activity log in the Colab cell, and a clean light interface that works on desktop and mobile.
+Additional capabilities include automatic sentence-level splitting for long scripts, adjustable generation quality and speaking speed, a live processing log, and 24 kHz WAV output.
 
-## 🚀 Quick start (Google Colab)
+## 🚀 Quick start — Google Colab
 
-1. Click the **Open in Colab** button above.
-2. Choose **Runtime → Change runtime type → T4 GPU**.
-3. Run **Cell 1** and wait for the “Setup complete” message.
-4. Run **Cell 2** — the studio starts and a public link appears in the output. Open it and start creating.
-5. Keep Cell 2 running while you work. The live activity log shows every request.
+1. Open this repository's **Open in Google Colab** button above.
+2. In Colab, select **Runtime → Change runtime type → T4 GPU** (or another available GPU).
+3. Run **Cell 1 — Setup** and wait for the setup-complete message.
+4. Run **Cell 2 — Launch**.
+5. Open the public Gradio link shown in the output. Keep the launch cell running while using the studio.
 
 ## 💻 Run locally
 
-~~~bash
-git clone https://github.com/AS-STUDIO-PRO/AS-VOICE-STUDIO-V3.git
-cd AS-VOICE-STUDIO-V3
+```bash
+git clone https://github.com/GHX-STUDIO-786/GHX-VOICE-STUDIO-V5.git
+cd GHX-VOICE-STUDIO-V5
 pip install -r requirements.txt
-python app.py            # opens on http://localhost:7860
-~~~
+python app.py
+```
 
-A CUDA GPU is strongly recommended. Set `AS_DEMO_MODE=1` to test the interface without a GPU or model download.
+The local interface is normally available at `http://localhost:7860`. A CUDA-capable GPU is recommended. To test the interface without downloading the voice model, set `AS_DEMO_MODE=1`.
 
 ## 🎯 Tips for best results
 
-- Use a **clean 3–10 second** reference clip with no background noise or music.
-- Keep the **reference and target language the same** to avoid an accent carry-over.
-- Quality: **16** = fast, **32** = balanced, **48+** = studio.
-- Write numbers as words (`123` → `one hundred twenty-three`) for correct pronunciation.
-- Long scripts are split at sentence boundaries automatically and joined with a short pause.
-- **Preprocess Prompt** trims silence in the reference clip. **Postprocess Output** removes long silences from the generated audio.
+- Use a clean 3–10 second reference clip with minimal background noise.
+- Use a reference recording in the same language as the target script when possible.
+- Quality settings: **16** for faster generation, **32** for balanced output, and **48+** for higher quality (at the cost of time).
+- Write numbers as words when exact spoken pronunciation matters.
+- Long scripts are split at sentence boundaries automatically.
+- Use the preprocessing and postprocessing controls to manage silence in reference and generated audio.
 
 ## 🗂️ Project structure
 
-~~~text
-├── app.py                      # Interface and workflow logic
-├── engine.py                   # Voice engine wrapper
-├── AS_VOICE_STUDIO_V3.ipynb    # One-click Colab launcher
-├── requirements.txt
-├── NOTICE.md                   # Third-party credits
-└── README.md
-~~~
+```text
+├── app.py                    # Studio interface and workflow
+├── engine.py                 # Voice engine wrapper
+├── GHX_VOICE_STUDIO_V5.ipynb # Google Colab setup and launcher
+├── requirements.txt          # Python dependencies
+├── NOTICE.md                 # Third-party credits and licenses
+└── README.md                 # Project documentation
+```
 
 ## 🛠️ Troubleshooting
 
-| Problem | Fix |
+| Issue | What to try |
 |---|---|
-| Very slow generation | Enable a GPU: *Runtime → Change runtime type → T4 GPU*. |
-| Public link does not appear | Wait for the model to finish loading (the first run downloads it), or re-run Cell 2. |
-| "Processing failed" message | Check that the script is not empty and the reference clip is valid, then retry. The activity log and `studio.log` show the details. |
-| Out of memory | Lower the quality value or shorten the script. |
-| Accent in the output | Use a reference clip in the same language as the script. |
+| Generation is slow | Select a GPU in **Runtime → Change runtime type**. |
+| Colab public link does not appear | Wait for model loading to finish; then check the launch cell output. |
+| Processing failed | Check the script and reference audio, then review the Colab output and `studio.log`. |
+| GPU memory error | Reduce generation quality or shorten the script. |
+| Output accent is unexpected | Try a reference clip in the target language. |
 
 ## ⚠️ Responsible use
 
-Do not clone anyone's voice without their explicit permission. Do not use this tool for fraud, impersonation, harassment, or any illegal purpose. You are fully responsible for how you use it.
+Only clone your own voice or a voice for which you have explicit permission. Do not use this software for fraud, impersonation, harassment or other unlawful activity. You are responsible for your use of the tool.
 
-## 🙏 Credits
+## 🙏 Third-party credits
 
-Built with open-source components. See [NOTICE.md](NOTICE.md) for details and licenses.
+This project uses open-source components. See [NOTICE.md](NOTICE.md) for third-party credits and license information.
 
 ---
 
-<div align="center">Made by <b>AS STUDIO PRO</b></div>
+<div align="center">Developed by <strong>GHX STUDIO</strong></div>
