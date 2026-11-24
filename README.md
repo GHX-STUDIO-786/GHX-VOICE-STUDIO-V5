@@ -31,14 +31,11 @@ Additional capabilities include automatic sentence-level splitting for long scri
 
 1. Open this repository's **Open in Google Colab** button above.
 2. In Colab, select **Runtime → Change runtime type → T4 GPU** (or another available GPU).
-3. Run **Step 1 — Verify GHX Access**. Enter the registered Gmail and sign in to Colab with that same Google account.
-4. The notebook checks the email against the GHX Cloudflare license server. Only an active client with status `ok` can continue.
-5. Run **Step 2 — Setup**, then **Step 3 — Launch**.
-6. Open the public Gradio link shown in the output. Keep the launch cell running while using the studio.
+3. Run **Cell 1 — Setup** and wait for the setup-complete message.
+4. Run **Cell 2 — Launch**.
+5. Open the public Gradio link shown in the output. Keep the launch cell running while using the studio.
 
 ## 💻 Run locally
-
-Local developer runs do not perform the Colab Google-account check or Cloudflare license gate. Use the Colab launcher above when testing customer access control.
 
 ```bash
 git clone https://github.com/GHX-STUDIO-786/GHX-VOICE-STUDIO-V5.git
